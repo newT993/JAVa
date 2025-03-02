@@ -1,0 +1,17 @@
+package twentyFivePointTwo;
+
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JSlider;
+
+public class SiderFrame extends JFrame{
+	private JSlider diaJSlider;
+	private OvalPanel myPanel;
+	
+	public SiderFrame() {
+		super("Slider demo");
+		myPanel = new OvalPanel();
+		myPanel.setBackground(Color.yellow);
+	}
+}

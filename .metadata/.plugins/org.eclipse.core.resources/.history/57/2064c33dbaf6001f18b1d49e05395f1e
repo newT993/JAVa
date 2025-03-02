@@ -1,0 +1,41 @@
+package twentyFivePointTwo;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JSlider;
+import javax.swing.SwingConstants;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+public class SiderFrame extends JFrame {
+    private JSlider diaJSlider;
+    private OvalPanel myPanel;
+
+    public SiderFrame() {
+        super("Slider Demo");
+
+        myPanel = new OvalPanel();
+        myPanel.setBackground(Color.YELLOW);
+
+        diaJSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 200, 10);
+        diaJSlider.setMajorTickSpacing(10);
+        diaJSlider.setPaintTicks(true);
+
+        diaJSlider.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                myPanel.setDiameter(diaJSlider.getValue());
+            }
+        });
+
+        add(diaJSlider, BorderLayout.SOUTH);
+        add(myPanel, BorderLayout.CENTER);
+    }
+
+    public static void main(String[] args) {
+        SliderFrame frame = new SliderFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 300);
+        frame.setVisible(true);
+    }
+}

@@ -1,0 +1,76 @@
+package twentyFivePointOneTwo;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.Random;
+
+public class DesktopFrame extends JFrame {
+    private JDesktopPane theDesktop;
+
+    public DesktopFrame() {
+        super("Using a JDesktopPane");
+
+        JMenuBar bar = new JMenuBar();
+        JMenu addMenu = new JMenu("Add");
+        JMenuItem newFrame = new JMenuItem("Internal Frame");
+
+        addMenu.add(newFrame);
+        bar.add(addMenu);
+        setJMenuBar(bar);
+
+        theDesktop = new JDesktopPane();
+        add(theDesktop);
+
+        newFrame.addActionListener(e -> {
+            JInternalFrame frame = new JInternalFrame("Internal Frame",
+                    true, true, true, true);
+
+            MyjPanel panel = new MyjPanel();
+            frame.add(panel, BorderLayout.CENTER);
+            frame.pack();
+            theDesktop.add(frame);
+            frame.setVisible(true);
+        });
+
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new DesktopFrame();
+    }
+}
+
+class MyjPanel extends JPanel {
+    private static final Random generator = new Random();
+    private ImageIcon pictureIcon;
+    private static final String[] images = {
+            "one.jpg", "two.jpg", "three.jpg", "four.jpg"
+    };
+
+    public MyjPanel() {
+        int randomNum = generator.nextInt(images.length);
+        pictureIcon = new ImageIcon("gg.png"); // Try absolute path if not working
+
+        // Debugging: Check if the image loaded
+        if (pictureIcon.getIconWidth() <= 0 || pictureIcon.getIconHeight() <= 0) {
+            System.out.println("Error: Image not found -> " + images[randomNum]);
+        }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (pictureIcon != null && pictureIcon.getIconWidth() > 0) {
+            g.drawImage(pictureIcon.getImage(), 0, 0, this);
+        }
+    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        return (pictureIcon != null && pictureIcon.getIconWidth() > 0)
+                ? new Dimension(pictureIcon.getIconWidth(), pictureIcon.getIconHeight())
+                : new Dimension(200, 200);
+    }
+}

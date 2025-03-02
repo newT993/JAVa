@@ -1,0 +1,73 @@
+package labOne;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.*;
+
+public class Main extends JFrame{
+
+//	The Student Major list contains six major' names: Civil, EC, EP, MECH, IT and MC. 
+//	Solution; 
+//	import java.awt.*; 
+//	import javax.swing.*; 
+//	public class StudentInformation extends JFrame { 
+//	private JLabel name, nrc, major, address, sex; 
+	private JTextField tname, tnrc; 
+	private JComboBox cmajor; 
+	private JTextArea taddress; 
+	private JButton save,cancle; 
+	private JRadioButton sexmale; 
+	private JRadioButton sexfemale; 
+	private ButtonGroup group; 
+	private String[] smajor = {"Civil", "EC","EP","MECH","IT", "MC"}; 
+	private JPanel pl,p2,p3; 
+	public StudentInformation() { 
+	super("Student data"); 
+	setSize(300,350);
+	
+	name=new JLabel("Student Name"); nrc=new JLabel("NRC Number"); 
+	sex-new JLabel("Sex"); 
+	major-new JLabel("Student Major"); 
+	address new JLabel("Address"); 
+	tname=new JTextField(10); 
+	tnrc=new JTextField(10); 
+	cmajor-new JComboBox(smajor); 
+	taddress=new JTextArea(3,10); 
+	sexmale = new JRadioButton("male"); 
+	sexfemale=new JRadioButton("female"); 
+	group-new ButtonGroup(); 
+	save new JButton("Save"); 
+	cancle=new JButton("Cancle"); 
+	p1=new JPanel(); 
+	p2=new JPanel(); 
+	p3=new JPanel(); 
+	pl.setLayout(new GridLayout(5,2)); 
+	pl.add(name); 
+	pl.add(tname); 
+	pl.add(nrc); 
+	pl.add(tnrc); 
+	pl.add(major); 
+	pl.add(cmajor); 
+	pl.add(sex); 
+	p3.add(sexmale); 
+	p3.add(sexfemale); 
+	pl.add(p3); 
+	pl.add(address); 
+	p1.add(new JScrollPane(taddress)); 
+	add(p1, new BorderLayout().NORTH); 
+	p2.add(save); 
+	p2.add(cancle); 
+	add(p2,new BorderLayout().SOUTH); 
+	group.add(sexfemale); 
+	group.add(sexmale); 
+	show(); 
+	public static void main(String[] args) { 
+	
+		StudentInformation std =new StudentInformation();
+		//public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		std.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
+
+}

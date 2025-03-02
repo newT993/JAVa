@@ -1,0 +1,25 @@
+package twentyFivePointTwo;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+
+public class OvalPanel extends JFrame{
+	private int diameter = 10;
+	private void paintCOm(Graphics g) {
+		super.paintComponents(g);
+		g.fillOval(10, 10, diameter, diameter);
+	}
+	
+	private void setDiameter(int newDiameter) {
+		diameter = newDiameter >= 0 ? newDiameter : 10;
+		repaint();
+	}
+	public Dimension getPre() {
+		return new Dimension(200,200);
+	}
+	public Dimension getMinDimension() {
+		return getPre()	;
+	}
+}

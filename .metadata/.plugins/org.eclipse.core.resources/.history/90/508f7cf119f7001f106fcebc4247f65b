@@ -1,0 +1,36 @@
+package twentyFivePointOneTwo;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+public class DesktopFrame extends JFrame{
+	private JDesktopPane theDesktop;
+	public DesktopFrame() {
+		super("using a jdesktoppane");
+		
+		JMenuBar bar = new JMenuBar();
+		JMenu addMenu = new JMenu("add");
+		JMenuItem newFrame = new JMenuItem("internal frame");
+		
+		addMenu.add(newFrame);
+		bar.add(addMenu);
+		setJMenuBar(bar);
+		
+		theDesktop = new JDesktopPane();
+		add(theDesktop);
+		
+		newFrame.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				JInternalFrame frame = newFrame JInternalFrame("internal frame", 
+						true, true, true, true)
+			}
+		});
+	}
+}

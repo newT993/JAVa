@@ -1,0 +1,23 @@
+package fourteenPointNine;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class TextFieldFrame extends JFrame{
+	private JTextField txField;
+	private JTextField txField2;
+	private JTextField txField3;
+	private JPasswordField jPasswordField;
+	
+	public TextFieldFrame() {
+		// TODO Auto-generated constructor stub
+		super("Testing: Jtextfield and jpwdfield");
+		setLayout(new FlowLayout());
+		
+		txField = new JTextField(10);
+		add(txField);
+	}
+}

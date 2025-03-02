@@ -1,0 +1,16 @@
+package twentyPointOneOne;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class Algorithms {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Character[] lettersCharacters = {'P', 'C', 'M'};
+		List<Character> list = Arrays.asList(lettersCharacters);
+		
+	}
+
+}
